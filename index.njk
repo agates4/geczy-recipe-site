@@ -1,18 +1,44 @@
 ---
-title: Title. Update me.
+title: Csillagok Receptek
 layout: layouts/home.njk
-description: Description. Update me.
+description: All you can eat recipes created by Geczy Csilla!
 image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
 date: Last Modified
+pagination:
+  data: collections.recipes
+  size: 9
+  alias: recipes
+  reverse: true
 ---
 
 <p>
-  This is a demo website based on 
-  <a href="https://www.industrialempathy.com/recipes/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
+  This is a recipe website of Csilla's original recipes. These were first posted on 
+  <a target="_blank" href="https://cookpad.com/hu/felhasznalok/6659384">cookpad.hu</a>
 </p>
 
 <div id="recipes">
-  <h2>recipes</h2>
-  {% set recipeslist = collections.recipes %}
+  <h2>Recipes</h2>
+  <p align="center">
+    <a href="{{ pagination.href.next }}" style="margin-right: 1.5em;">Previous</a>
+      {%- for pageEntry in pagination.pages %}
+          <a style="margin-right: 0.25em;" href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a>
+      {%- endfor %}
+    <a href="{{ pagination.href.next }}" style="margin-left: 1.25em;">Next</a>
+  </p>
+  {% set recipeslist = recipes %}
   {% include "recipeslist.njk" %}
+  <p align="center">
+    <a href="{{ pagination.href.next }}" style="margin-right: 1.5em;">Previous</a>
+      {%- for pageEntry in pagination.pages %}
+          <a style="margin-right: 0.25em;" href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a>
+      {%- endfor %}
+    <a href="{{ pagination.href.next }}" style="margin-left: 1.25em;">Next</a>
+  </p>
 </div>
+
+<style>
+  [aria-current] {
+    font-weight: bold;
+    font-size: 130%;
+  }
+</style>

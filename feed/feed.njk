@@ -15,19 +15,19 @@ eleventyExcludeFromCollections: true
 		<name>{{ metadata.author.name }}</name>
 		<email>{{ metadata.author.email }}</email>
 	</author>
-	{%- for post in collections.recipes %}
-	{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+	{%- for recipe in collections.recipes %}
+	{% set absoluteRecipeUrl %}{{ recipe.url | url | absoluteUrl(metadata.url) }}{% endset %}
 	<entry>
-		<title>{{ post.data.title }}</title>
-		<link href="{{ absolutePostUrl }}"/>
-		<updated>{{ post.date | rssDate }}</updated>
-		<id>{{ absolutePostUrl }}</id>
+		<title>{{ recipe.data.title }}</title>
+		<link href="{{ absoluteRecipeUrl }}"/>
+		<updated>{{ recipe.date | rssDate }}</updated>
+		<id>{{ absoluteRecipeUrl }}</id>
 		<content type="html">
-		  {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+		  {{ recipe.templateContent | htmlToAbsoluteUrls(absoluteRecipeUrl) }}
 			{% if googleanalytics %}
-				{% set titleUrlEncoded = post.data.title|encodeURIComponent %}
-				{% set urlUrlEncoded = post.url | encodeURIComponent %}
-				{{'<img src="' + metadata.url +  '/api/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Frss-feed-reader.com&_s=1&dh=' + metadata.domain + '&dp=' + urlUrlEncoded + '&ul=en-us&de=UTF-8&dt=' + titleUrlEncoded + '&tid=' + googleanalytics + '" width="1" height="1" style="display:none" alt="">'}}
+				{% set titleUrlEncoded = recipe.data.title|encodeURIComponent %}
+				{% set urlUrlEncoded = recipe.url | encodeURIComponent %}
+				{{'<img src="' + metadata.url +  '/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Frss-feed-reader.com&_s=1&dh=' + metadata.domain + '&dp=' + urlUrlEncoded + '&ul=en-us&de=UTF-8&dt=' + titleUrlEncoded + '&tid=' + googleanalytics + '" width="1" height="1" style="display:none" alt="">'}}
 			{% endif %}
 		</content>
 	</entry>

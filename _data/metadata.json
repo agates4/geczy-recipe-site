@@ -1,10 +1,10 @@
 {
-  "title": "Title of the website. Update me.",
+  "title": "Csillagok Receptek",
   "url": "https://update-me.com",
   "domain": "update-me.com",
-  "description": "Description of the website. Update me.",
-  "genre": "Insert a schema.org genre",
-  "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
+  "description": "All you can eat recipes created by Geczy Csilla!",
+  "genre": "Recipe",
+  "googleAnalyticsId": "GA ID. Update me",
   "sendWebVitals": false,
   "feed": {
     "subtitle": "Subtitle. Update me.",
@@ -17,10 +17,10 @@
     "url": "https://update-me.com/feed/feed.json"
   },
   "author": {
-    "name": "Author Name. Update me.",
+    "name": "Geczy, Csilla",
     "twitterHandle": "update_me"
   },
   "publisher": {
-    "name": "Publisher name. Update me."
+    "name": "Geczy, Csilla"
   }
 }
