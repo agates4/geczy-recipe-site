@@ -12,13 +12,13 @@ const isDev = require("../_data/isdevelopment")();
  * They are useful because I tend to break the things they test all the time.
  */
 
-describe("Draft posts", function () {
+describe("Draft recipes", function () {
   if (isDev) {
     console.log("Skipping test because in dev mode drafts are written out.");
     return;
   }
   describe("draft post", () => {
-    const DRAFT_POST = "_site/posts/fifthpost/index.html";
+    const DRAFT_POST = "_site/recipes/fifthpost/index.html";
 
     it("w. draft: true should NOT be rendered", () => {
       var draftfileexists = false;
@@ -34,7 +34,7 @@ describe("Draft posts", function () {
     });
   });
   describe("draft post from future", () => {
-    const DRAFT_POST_FUTURE = "_site/posts/sixthpostdraft/index.html";
+    const DRAFT_POST_FUTURE = "_site/recipes/sixthpostdraft/index.html";
 
     it("should NOT be rendered", () => {
       var draftpostfutureexists = false;

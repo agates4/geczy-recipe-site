@@ -171,8 +171,8 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addCollection("posts", function (collectionApi) {
-    return collectionApi.getFilteredByTag("posts");
+  eleventyConfig.addCollection("recipes", function (collectionApi) {
+    return collectionApi.getFilteredByTag("recipes");
   });
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
   eleventyConfig.addPassthroughCopy("img");

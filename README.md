@@ -1,4 +1,4 @@
-# eleventy-high-performance-blog
+# Geczy Recipe Site
 
 A website for Mom to display all her recipes for free!
 

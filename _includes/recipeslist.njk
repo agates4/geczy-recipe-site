@@ -1,0 +1,43 @@
+{% set atPost = 0 %}
+
+<div class="full-width">
+  <div class="container">
+    {% for recipe in recipeslist %}
+      <div class="item">
+        <a href="{{ recipe.url | url }}">{% if recipe.data.title %}{{ recipe.data.title }}{% else %}
+          <code>{{ recipe.url }}</code>{% endif %}
+        </a>
+        <time  datetime="{{ recipe.date | htmlDateString }}">{{ recipe.date | readableDate }}</time>
+        <p align="left">
+          <a href="{{ recipe.url | url }}">{% if recipe.data.mainImage %}
+            <img width="375.5" height="266" src="{{ recipe.data.mainImage }}"/>{% else %}
+            <code>{{ recipe.url }}</code>{% endif %}
+          </a>
+        </p>
+        {% set atPost = atPost + 1 %}
+        {% if atPost < 3 %}
+          {% set atPost = 0 %}
+        {% endif%}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .full-width {
+    width: 60vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -30vw;
+    margin-right: -30vw;
+  }
+  .item {
+    width: 300px;
+    margin: 30px;
+  }
+</style>
