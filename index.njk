@@ -11,6 +11,17 @@ pagination:
   reverse: true
 ---
 
+<div id="search" class="search"></div>
+
+<script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ 
+  element: '#search', 
+  showImages: true,
+  processResult: function (result) {
+      console.log(result);
+      return result;
+  }
+});"></script>
+
 <p>
   This is a recipe website of Csilla's original recipes. These were first posted on 
   <a target="_blank" href="https://cookpad.com/hu/felhasznalok/6659384">cookpad.hu</a>

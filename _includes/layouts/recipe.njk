@@ -4,7 +4,7 @@ templateClass: tmpl-recipe
 ---
 {% extends "layouts/base.njk" %}
 
-
+<div data-pagefind-body>
 {% block extraArticleHeader %}
    {% set wc = content | striptags | wordcount %}
    {% set wPerMinute = (wc / 240) + 1 %}
@@ -56,3 +56,5 @@ templateClass: tmpl-recipe
 </script>
 
 {% endblock %}
+
+</div>

@@ -59,6 +59,7 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 const { cspDevMiddleware } = require("./_11ty/apply-csp.js");
+const { execSync } = require("child_process");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -243,6 +244,12 @@ module.exports = function (eleventyConfig) {
       touch(`test/${file}`);
       break;
     }
+  });
+
+  eleventyConfig.on("eleventy.after", () => {
+    execSync(`npx pagefind --source _site --glob \"**/*.html\"`, {
+      encoding: "utf-8",
+    });
   });
 
   return {
