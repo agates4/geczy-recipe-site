@@ -1,4 +1,3 @@
-_site/
 node_modules/
 .DS_Store
 js/min.js
@@ -6,3 +5,7 @@ js/min.js.map
 .vscode/
 .netlify/
 export
+.vercel
+z_file_batcher.py
+z_batch_commit.sh
+z_temp_batch.txt
