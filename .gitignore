@@ -2,6 +2,7 @@ node_modules/
 .DS_Store
 js/min.js
 js/min.js.map
+_site/
 .vscode/
 .netlify/
 export
